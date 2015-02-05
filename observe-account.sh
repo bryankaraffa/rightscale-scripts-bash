@@ -2,7 +2,9 @@
 #
 # Quickly open a RightScale account with observe privileges
 if [ -z "$1" ]; then
-  echo "\n[observe-account] ERROR: You must specify an account id.\n(Example: observer-account.sh 12345 )\n\n"
+  echo
+  echo "[observe-account] ERROR: You must specify an account id."
+  echo "(Example: observer-account.sh 12345 )"
   exit
 fi
 echo
@@ -41,14 +43,15 @@ elif [[ "$unamestr" == 'FreeBSD' ]]; then
 elif [[ "$unamestr" == 'Darwin' ]]; then
   platform='osx'
 fi
-### Specify the commands to open the browser
+echo "[observe-account] Platform detected: $platform."
+### Open the browser
 ### Currently, only Google Chrome on OSX and Linux are supported.
 if [[ $platform == 'linux' ]]; then
-  alias open_browser='google-chrome'
+  google-chrome "https://us-4.rightscale.com/acct/$customer_acct"
 elif [[ $platform == 'osx' ]]; then
-  alias open_browser='/usr/bin/open -a "/Applications/Google Chrome.app"'
+  /usr/bin/open -a "/Applications/Google Chrome.app" "https://us-4.rightscale.com/acct/$customer_acct"
 fi
-### Open the browser
-open_browser "https://us-4.rightscale.com/acct/$customer_acct"
-echo "\n\n[observer-account] Done!"
+echo
+echo
+echo "[observer-account] Done!"
 echo
