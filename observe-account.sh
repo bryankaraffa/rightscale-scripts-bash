@@ -11,7 +11,7 @@ echo
 ### Pre-configure MASTER account ID
 acct="60072"
 ### Get Username and Password from user
-. ./userinput-credentials.sh
+. ./helpers/userinput-credentials.sh
 ### Execute API Call to retrieve cookie and save it to mycookie
 . ./get-cookie.sh
 
