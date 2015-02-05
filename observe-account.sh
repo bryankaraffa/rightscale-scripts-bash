@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 #
 # Quickly open a RightScale account with observe privileges
 if [ -z "$1" ]; then
