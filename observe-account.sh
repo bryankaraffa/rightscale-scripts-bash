@@ -23,7 +23,7 @@ customer_acct=$1
 curl --silent -H X_API_VERSION:1.5 -b mycookie \
 -d Host="us-3.rightscale.com" \
 -d Referer="https://us-3.rightscale.com/global//admin_accounts/$customer_acct" \
--X POST https://us-3.rightscale.com/global//admin_accounts/$customer_acct/access
+-X POST https://us-3.rightscale.com/global//admin_accounts/$customer_acct/access &> /dev/null
 
 # Cleanup
 rm -f mycookie
@@ -45,7 +45,7 @@ echo "[observe-account] Platform detected: $platform."
 if [[ $platform == 'linux' ]]; then
   xdg-open "https://my.rightscale.com/acct/$customer_acct" &> /dev/null
 elif [[ $platform == 'osx' ]]; then
-  open "https://my.rightscale.com/acct/$customer_acct" &/dev/null
+  open "https://my.rightscale.com/acct/$customer_acct" &> /dev/null
 fi
 echo "[observe-account] Browser launched!"
 echo
