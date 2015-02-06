@@ -43,13 +43,14 @@ elif [[ "$unamestr" == 'FreeBSD' ]]; then
 elif [[ "$unamestr" == 'Darwin' ]]; then
   platform='osx'
 fi
+echo
 echo "[observe-account] Platform detected: $platform."
+echo "[observe-account] Launching browser.."
 ### Open the browser
-### Currently, only Google Chrome on OSX and Linux are supported.
 if [[ $platform == 'linux' ]]; then
-  google-chrome "https://us-4.rightscale.com/acct/$customer_acct"
+  xdg-open "https://my.rightscale.com/acct/$customer_acct" &
 elif [[ $platform == 'osx' ]]; then
-  /usr/bin/open -a "/Applications/Google Chrome.app" "https://us-4.rightscale.com/acct/$customer_acct"
+  open "https://my.rightscale.com/acct/$customer_acct"
 fi
 echo
 echo
