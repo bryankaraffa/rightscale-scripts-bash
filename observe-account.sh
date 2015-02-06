@@ -18,10 +18,6 @@ acct="60072"
 . ./get-cookie.sh
 
 customer_acct=$1
-if [ -z "$email" ]; then
-  echo "The email address for your RightScale User in the Dashboard, followed by [ENTER]:"
-  read email
-fi
 # Use cookie to authenticate and observe account
 ### Execute API Call to retrieve cookie and save it to mycookie
 curl --silent -H X_API_VERSION:1.5 -b mycookie \
@@ -45,14 +41,11 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
 fi
 echo
 echo "[observe-account] Platform detected: $platform."
-echo "[observe-account] Launching browser.."
 ### Open the browser
 if [[ $platform == 'linux' ]]; then
-  xdg-open "https://my.rightscale.com/acct/$customer_acct" &
+  xdg-open "https://my.rightscale.com/acct/$customer_acct" &> /dev/null
 elif [[ $platform == 'osx' ]]; then
-  open "https://my.rightscale.com/acct/$customer_acct"
+  open "https://my.rightscale.com/acct/$customer_acct" &/dev/null
 fi
-echo
-echo
-echo "[observer-account] Done!"
+echo "[observe-account] Browser launched!"
 echo

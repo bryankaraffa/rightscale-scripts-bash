@@ -14,18 +14,18 @@
 
 ### Get Email
 if [ -z "$email" ]; then
-  echo "The email address for your RightScale User in the Dashboard, followed by [ENTER]:"
+  echo "Your RightScale user e-mail address, followed by [ENTER]:"
   read email
 fi
 ### Get Password
 if [ -z "$pswd" ]; then
-  echo "Your User's password, followed by [ENTER]:"
+  echo "Your RightScale password, followed by [ENTER]:"
   read -s pswd
 fi
 
 ### Get Account ID
 if [ -z "$acct" ]; then
-  echo "Account ID, easily obtained from navigation in the Dashboard, followed by [ENTER]:"
+  echo "Account ID, easily obtained from the RightScale Dashboard, followed by [ENTER]:"
   read acct
 fi
 echo
