@@ -8,26 +8,28 @@
 #
 # Required parameters for get-cookie.sh
 #
-# email="john.doe@example.com"   # The email address for your RightScale User in the Dashboard
-# pswd="SomeSecurePassword"      # Your User's password
-# account="1234"                 # Account ID, easily obtained from navigation in the RS Dashboard
+# rs_email="john.doe@example.com"   # The email address for your RightScale User in the Dashboard
+# rs_pswd="SomeSecurePassword"      # Your User's password
+# rs_acct="1234"                 # Account ID, easily obtained from navigation in the RS Dashboard
 
 ### Get Email
-if [ -z "$email" ]; then
+if [ -z "$rs_email" ]; then
   echo "Your RightScale user e-mail address, followed by [ENTER]:"
   read email
 fi
 ### Get Password
-if [ -z "$pswd" ]; then
+if [ -z "$rs_pswd" ]; then
   echo "Your RightScale password, followed by [ENTER]:"
   read -s pswd
 fi
 
 ### Get Account ID
-if [ -z "$acct" ]; then
+rs_acct=$1
+if [ -z "$1" ]; then
   echo "Account ID, easily obtained from the RightScale Dashboard, followed by [ENTER]:"
-  read acct
+  read rs_acct
 fi
+
 echo
 echo
-echo "[userinput-credentials] Completed:  $email @ $acct"
+echo "[userinput-credentials] Completed:  $email @ $rs_acct"
