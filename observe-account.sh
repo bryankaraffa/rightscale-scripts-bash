@@ -4,16 +4,16 @@
 if [ -z "$1" ]; then
   echo
   echo "[observe-account] ERROR: You must specify an account id."
-  echo "(Example: observer-account.sh 12345 )"
+  echo "(Example: observe-account.sh 12345 )"
   exit
 fi
 echo
 
 # Authenticate and get cookie for MASTER account
-### Pre-configure MASTER account ID
-acct="60072"
 ### Get Username and Password from user
 . ./helpers/userinput-credentials.sh
+### Pre-configure MASTER account ID
+rs_acct="60072"
 ### Execute API Call to retrieve cookie and save it to mycookie
 . ./get-cookie.sh
 

@@ -25,7 +25,7 @@ fi
 
 ### Get Account ID
 rs_acct=$1
-if [ -z "$1" ]; then
+if [ -z "$rs_acct" ]; then
   echo "Account ID, easily obtained from the RightScale Dashboard, followed by [ENTER]:"
   read rs_acct
 fi
